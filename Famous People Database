@@ -22,10 +22,12 @@ INSERT INTO occupation (famous_people_id, job, networth) VALUES (6, "actor", 600
 INSERT INTO occupation (famous_people_id, job, networth) VALUES (7, "actor", 400000000);
 INSERT INTO occupation (famous_people_id, job, networth) VALUES (8, "dog trainer", 1000000);
 
--- 
+-- display database by first name, last name, occupation and networth
 SELECT famous_people.first_name, famous_people.last_name, occupation.job, occupation.networth FROM famous_people LEFT OUTER JOIN occupation ON famous_people.id = famous_people_id;
 
+-- display data base by singer or actor and descend order by networth
 SELECT famous_people.first_name, famous_people.last_name, occupation.job, occupation.networth FROM famous_people LEFT OUTER JOIN occupation ON famous_people.id = famous_people_id
 WHERE occupation.job = "singer" OR occupation.job = "actor" GROUP BY occupation.networth;
 
+-- what is the average networth of famous individuals?
 SELECT AVG(networth) as Average_Networth FROM occupation;
